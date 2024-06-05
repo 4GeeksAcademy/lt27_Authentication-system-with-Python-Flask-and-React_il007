@@ -1,13 +1,24 @@
 import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
+
 
 import { Context } from "../store/appContext";
+import Form from "../component/form";
 
 export const Demo = () => {
 	const { store, actions } = useContext(Context);
+	console.log("estoy en demo")
+
+	console.log(store)
+	if (store.auth == false) 
+		return <Form/>
+
 
 	return (
+	
 		<div className="container">
+			
 			<ul className="list-group">
 				{store.demo.map((item, index) => {
 					return (
